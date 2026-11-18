@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcore-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloudcore-app
+  template:
+    metadata:
+      labels:
+        app: cloudcore-app
+    spec:
+      containers:
+        - name: cloudcore-app
+          image: cloudcore-producto2:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
